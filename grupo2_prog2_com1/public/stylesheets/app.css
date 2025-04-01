@@ -67,13 +67,14 @@ hr {
 
 /*====== Main Header ======*/
 .main-header {
-  padding: 15px 0;
-  background-color: var(--yellow);
+  padding: 5px 0;
+  background-color: #ffc0cb;
 }
 
-.main-header_home-link,
-.main-header_credit-link {
-  display: block;
+.main-header_home-link{
+  width: 120%;
+  display: flex;
+  margin-right: 70%;
 }
 
 .main-header_credit-link {
@@ -83,8 +84,8 @@ hr {
 }
 
 .search-form {
-  position: relative;
   display: flex;
+  position: relative;
   align-items: center;
 }
 
