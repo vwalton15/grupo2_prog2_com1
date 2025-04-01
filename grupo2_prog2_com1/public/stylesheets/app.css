@@ -68,7 +68,7 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 5px 0;
-  background-color: #ffc0cb;
+  background-color: #f4d3d8;
 }
 
 .main-header_home-link{
@@ -155,11 +155,15 @@ hr {
 
 /*====== Banner ======*/
 .banner {
-  background-image: url(/images/img-home-banner.jpg);
+  background-image: url(/images/banner.pmg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   height: 100px;
+  .img-banner{
+    height: 370px;
+    width: 100%;
+  }
 }
 
 
