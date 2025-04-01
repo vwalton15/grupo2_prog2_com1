@@ -1,9 +1,9 @@
 const userController = {
     register: function (req, res) {
-        res.render('register', { title: 'Registro' });
+        res.render('Register');
     },
     login: function (req, res) {
-        res.render('login', { title: 'Iniciar Sesión' });
+        res.render('Login');
     },
 };
 module.exports = userController;
