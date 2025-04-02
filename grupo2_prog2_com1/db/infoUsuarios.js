@@ -8,7 +8,7 @@ const infoUsuario = {
         fotoPerfil: '/images/fotoPerfil.jpg'
       }
       
-}
+};
 
 module.exports= infoUsuario;
   
