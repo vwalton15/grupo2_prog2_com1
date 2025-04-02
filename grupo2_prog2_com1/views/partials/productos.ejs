@@ -1,0 +1,23 @@
+<div class="row">
+    <% for(let i = 0; i < productos.length; i++) { %>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <section class="product-box">
+                    <figure class="product-box_image">
+                        <img src="<%= productos[i].Image %>" alt="<%= productos[i].nombre %>">
+                    </figure>
+                    <article class="product-box_data">
+                        <h2><%= productos[i].name %></h2>
+                        <p><%= productos[i].descripcion %></p>
+                        <% for (let j = 0; j < productos[i].comentarios.length; j++) { %>
+                            <div class="comentario">
+                              <img src="<%= productos[i].comentarios[j].imagenPerfil %>" alt="Foto de <%= productos[i].comentarios[j].usuario %>" class="comentario-img">
+                              <strong><%= productos[i].comentarios[j].usuario %></strong>
+                              <p><%= productos[i].comentarios[j].texto %></p>
+                            </div>
+                          <% } %>
+                    </article>
+                </a>
+            </section>
+        </div>
+    <% } %>
+</div>

@@ -1,6 +1,11 @@
+
+const listaProductos = require("../db/product");
 const homeController = {
     index: function (req, res) {
-        res.render('index');
-    },
+        let productos= listaProductos.lista;
+        res.render("index", {productos: productos })
+    }
 }
+
+
 module.exports = homeController;

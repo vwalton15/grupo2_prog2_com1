@@ -1,4 +1,5 @@
 const usuario = require("../db/infoUsuarios");
+const listaProductos = require("../db/product");
 
 const userController = {
     login: function (req, res) {
@@ -9,7 +10,9 @@ const userController = {
     },
     perfil: function (req, res) {
         let usuarioLogueado = usuario.usuario;
-        res.render("profile", { usuario: usuarioLogueado })
+        let productos= listaProductos.lista;
+        res.render("profile", { usuario: usuarioLogueado , productos: productos})
     }
 }
+
 module.exports = userController;
