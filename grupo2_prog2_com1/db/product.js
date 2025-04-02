@@ -1,18 +1,18 @@
- const products= {
-    lista: [ {
-        id: 1,  
+const products = {
+    lista: [{
+        id: 1,
         name: "Anillo Doble ",
         descripcion: "Anillo cubierto de oro, combinado con perlas naturales",
         Image: "/images/products/anilloDoble.jpg",
     },
     {
-        id: 2,  
+        id: 2,
         name: "Anillo Heart",
         descripcion: "Anillo cubierto de oro, con corazoncitos ",
         Image: "/images/products/anilloHeart.jpg",
     },
     {
-        id: 3,  
+        id: 3,
         name: "Aritos Amalfi",
         descripcion: "Aritos con perlas naturales",
         Image: "/images/products/aritosAmalfi.jpg",
@@ -51,14 +51,14 @@
         id: 9,
         name: "Combo Dorado",
         descripcion: "Combo de pulseras delicadas doradas",
-        image:"/images/products/comboDorado.jpg",
+        image: "/images/products/comboDorado.jpg",
     },
     {
         id: 10,
         name: "Relos Mar",
         descripcion: "Reloj con detalles en azul y dorado",
-        image:"/images/products/relojMar.jpg",
+        image: "/images/products/relojMar.jpg",
     }
-]
- };
-module.exports= products;
+    ]
+};
+module.exports = products;

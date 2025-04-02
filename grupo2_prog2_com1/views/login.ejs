@@ -2,44 +2,44 @@
 <html lang="es">
 <!-- Include Head -->
 
-<%- include('./partials/head') %> 
+<%- include('./partials/head') %>
 
-<body>
-	<!-- Header -->
-	<%- include('./partials/header') %> 
-	<!-- /Header -->
+	<body>
+		<!-- Header -->
+		<%- include('./partials/header') %>
+			<!-- /Header -->
 
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Ingresar</h2>
+			<!-- Novedades -->
+			<div class="container products-wrapper">
+				<div class="row">
+					<div class="col-12">
+						<h2 class="products-title">Ingresar</h2>
+					</div>
+					<!-- Show the "ultimos" products -->
+					<div class="col-12 col-md-6 offset-md-3">
+						<form action="/login" method="POST" class="login-form">
+							<div class="form-group">
+								<label for="email">Usuario (Email):</label>
+								<input type="email" id="email" name="email" class="form-control"
+									placeholder="Ingresa tu email" required>
+							</div>
+							<div class="form-group">
+								<label for="password">Contraseña:</label>
+								<input type="password" id="password" name="password" class="form-control"
+									placeholder="Ingresa tu contraseña" required>
+							</div>
+							<div class="form-group form-check">
+								<input type="checkbox" id="remember" name="remember" class="form-check-input">
+								<label for="remember" class="form-check-label">Recordarme</label>
+							</div>
+							<button type="submit" class="btn btn-primary">Ingresar</button>
+						</form>
+					</div>
+				</div>
 			</div>
-			<!-- Show the "ultimos" products -->
-			<div class="col-12 col-md-6 offset-md-3">
-				<form action="/login" method="POST" class="login-form">
-					<div class="form-group">
-						<label for="email">Usuario (Email):</label>
-						<input type="email" id="email" name="email" class="form-control" placeholder="Ingresa tu email"
-							required>
-					</div>
-					<div class="form-group">
-						<label for="password">Contraseña:</label>
-						<input type="password" id="password" name="password" class="form-control"
-							placeholder="Ingresa tu contraseña" required>
-					</div>
-					<div class="form-group form-check">
-						<input type="checkbox" id="remember" name="remember" class="form-check-input">
-						<label for="remember" class="form-check-label">Recordarme</label>
-					</div>
-					<button type="submit" class="btn btn-primary">Ingresar</button>
-				</form>
-			</div>
-		</div>
-	</div>
-	<!-- footer -->
-	<%- include('./partials/footer') %> 
-	<!-- /footer -->
-</body>
+			<!-- footer -->
+			<%- include('./partials/footer') %>
+				<!-- /footer -->
+	</body>
 
 </html>
