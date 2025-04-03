@@ -93,7 +93,7 @@ const products = {
     {
         id: 6,
         name: "Collar Pearl",
-        descripcion: "collar chonky con perlas y charms",
+        descripcion: "collar chunky con perlas y charms",
         Image: "/images/products/collarPearl.jpg",
         comentarios: [
             {
@@ -148,7 +148,7 @@ const products = {
         id: 9,
         name: "Combo Golden",
         descripcion: "Set de collar y aros dorados con perlas",
-        Image: "/images/products/comboGolden.jpeg",
+        Image: "/images/products/comboGolden.jpg",
         comentarios: [
             {
                 usuario: "Juan",
