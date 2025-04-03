@@ -81,7 +81,7 @@ hr {
 .textoTitulo {
   font-family: var(--title-font-family); 
   text-align: center;
-  font-size: 2.5em;
+  font-size: 35px;
   margin: 0 auto;
   display: block;
 }
@@ -260,6 +260,23 @@ hr {
 
 
 /*====== Products ======*/
+.comentario {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 0;
+}
+
+.comentario img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.row{
+  margin-top: 70px;
+  display: flex;
+  flex-wrap: wrap;
+}
 .products-wrapper {
   margin-top: 30px;
   margin-bottom: 30px;
@@ -270,30 +287,39 @@ hr {
   font-weight: 400;
   color: var(--gray);
 }
-
 .product-box {
-  background-color: #ffffff;
-  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 250px;
+  height: 400px;
+  background: white;
+  border-radius: 10px;
   overflow: hidden;
-  transition: 300ms;
-  margin: 20px 0;
+  text-align: center;
+  height: auto; /* Permite que la tarjeta se adapte al contenido */
+  min-height: 400px;
+  margin: 0 0 20px 0;
+}
+
+.product-box_image img {
+  object-fit: cover;
+  width: 100%;
+  height: 280px; /* Aumenta la altura para que la imagen sea más grande */
+  object-fit: cover; /* Ajusta la imagen sin deformarla */
+}
+
+.product-box_data {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .product-box a {
   display: block;
 }
 
-.product-box_image {
-  border-bottom: 1px solid var(--light-gray);
-}
-
-.product-box_data {
-  padding: 15px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
 
 .product-box_data h2 {
   font-size: 2.4em;
@@ -358,7 +384,8 @@ hr {
 .main-footer {
   background-color: #ffffff;
   padding: 20px 0;
-  margin-top: 80px;
+  margin-top: 30px;
+  height: 80px;
 }
 
 .footer-data {
@@ -366,7 +393,7 @@ hr {
 }
 
 .footer-data i {
-  color: var(--light-blue);
+  color: #CCC5BA;
   font-size: 3.5em;
 }
 
@@ -384,7 +411,7 @@ hr {
 
 .sub-footer {
   border-top: 1px solid var(--light-gray);
-  background-color: #ffffff;
+  background-color: #CCC5BA;
 }
 
 .sub-footer p {
@@ -506,7 +533,7 @@ hr {
 .comments img{
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 60%;
 }
 .comments .data{
   width: 85%;
@@ -582,7 +609,7 @@ textarea.form-input {
 }
 
 .btn{
-  background-color: #1259c3;
+  background-color: #CCC5BA;
   padding: 10px 20px;
   border-radius: 4px;
   color: #fff;
