@@ -388,6 +388,58 @@ hr {
   box-shadow: 0 0 5px var(--green);
 }
 
+/*====== Product Add ======*/
+.product-add-form {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+}
+
+.product-add-form .form-group {
+  margin-bottom: 20px;
+}
+
+.product-add-form label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--dark-blue);
+  margin-bottom: 5px;
+  display: block;
+}
+
+.product-add-form .form-control {
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid var(--light-gray);
+  transition: border-color 0.3s ease;
+}
+
+.product-add-form .form-control:focus {
+  border-color: var(--light-blue);
+  outline: none;
+}
+
+.product-add-form textarea.form-control {
+  resize: none; /* Evita que el usuario cambie el tamaño del textarea */
+}
+
+.product-add-form .btn-primary {
+  background-color: var(--light-blue);
+  border: none;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product-add-form .btn-primary:hover {
+  background-color: var(--dark-blue);
+}
+
 /*====== Footer ======*/
 .main-footer {
   background-color: #ffffff;
@@ -429,166 +481,96 @@ hr {
 }
 
 
+
 /*====== Product Detail ======*/
-.product-title {
-  font-size: 1.5rem;
-  font-weight: bold;
+.product-detail {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-header {
   text-align: center;
   margin-bottom: 20px;
 }
 
-.product-image {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-.product-description {
-  font-size: 1rem;
-  line-height: 1.5;
-  text-align: justify;
-  margin-top: 10px;
-}
-.product-detail {
-  background-color: #ffffff;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.product-detail-img {
-  width: 70%;
-  display: block;
-  margin: auto;
-}
-
-.product-detail-info {
-  border-right: 1px solid var(--light-gray);
-  padding: 15px;
-  /* height: 100%; */
-}
-
-.product-detail-title {
-  font-weight: 400;
-  font-size: 2.8em;
-}
-
-.product-detail-description {
-  padding: 15px 15px 15px 40px;
-  font-size: 1.8em;
-  line-height: 1.5;
-}
-
-.product-detail-price {
-  font-size: 5.5em;
-  margin: 10px 0;
-}
-.product-detail .form{
-  padding: 0 15px;
-  display: flex;
-  flex-direction: column;
-}
-.small {
-  font-size: 1.8em;
-  color: var(--green);
-}
-
-.small span {
-  text-decoration: line-through;
-}
-
-.actions-list {
-  margin-bottom: 50px;
-}
-
-.actions-list li {
-  display: flex;
-  align-items: center;
-  margin: 20px 0;
-  padding: 20px 0;
-}
-
-.actions-list i {
-  color: var(--green);
-  font-size: 2em;
-  margin-right: 15px;
-}
-
-.actions-list p {
-  color: var(--gray);
-  font-size: 1.7em;
-  margin: 0;
-}
-
-.buy-now-button {
-  background-color: var(--light-blue);
-  font-size: 1.6em;
-  color: #ffffff;
-  padding: 15px;
-  border-radius: 8px;
-  border: none;
+.product-title {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: var(--dark-blue);
   margin-bottom: 15px;
 }
 
-.action-button {
-  border: none;
-  border-radius: 8px;
-  font-size: 1.2em;
-  color: #ffffff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px 30px;
-  margin-top: 15px;
+.product-image {
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(3, 3, 3, 0.1);
+  margin: 0 auto;
+  display: block;
 }
 
-.action-button.edit {
-  background-color: chocolate;
+.product-info {
+  margin-bottom: 30px;
 }
-.action-button.delete {
-  background-color: rgb(248, 69, 37);
+
+.product-description {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--gray);
+  text-align: justify;
 }
-.comments {
-  padding: 30px 15px 15px 0;
+
+.product-comments {
+  margin-top: 30px;
 }
-.comments article{
-  margin-bottom: 7.5px;
-  padding-bottom: 7.5px;
-  border-bottom: 1px solid #dcdcdc;
+
+.comments-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--dark-blue);
+  margin-bottom: 20px;
+}
+
+.comments-list {
+  list-style: none;
+  padding: 0;
+}
+
+.comentario {
   display: flex;
-  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.comments img{
-  width: 40px;
-  height: 40px;
-  border-radius: 60%;
-}
-.comments .data{
-  width: 85%;
-  
-}
-.comments p{
-  font-size: 1.5em;
-  margin-top: 0;
-}
-.comments .user{
-  font-size: 1.7em;
-}
+
 .comentario-img {
-  width: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  object-fit: cover; /* recorta para que no se deforme */
-  margin-right: 10px; 
+  margin-right: 15px;
 }
-.comentario-usuario{
-  display: flex;
-  flex-direction: column;
-  margin: 10px;
+
+.comentario-content {
+  flex: 1;
 }
-.contenedor-comentarios{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+
+.comentario-usuario {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--dark-blue);
+  margin-bottom: 5px;
+}
+
+.comentario-texto {
+  font-size: 1rem;
+  color: var(--gray);
 }
 /*====== Formularios ======*/
 .form-label {
@@ -648,9 +630,9 @@ textarea.form-input {
 .login-wrapper {
   margin-top: 50px;
   padding: 20px;
-  background-color: #eaeaea;
+  background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgb(201, 199, 199);
+  box-shadow: 0 4px 6px rgb(167, 167, 167);
 }
 
 .login-title {
@@ -658,11 +640,13 @@ textarea.form-input {
   font-family: inherit;
   margin-bottom: 20px;
   color: #0a0a0a;
+  text-align: center;
 }
 .login-group {
   font-size: 15px;
   font-weight: 500;
   color: #090909;
+  text-align: center
 }
 .login-form  {
   border-radius: 5px;
@@ -687,6 +671,7 @@ textarea.form-input {
   border-radius: 5px;
   cursor: pointer;
   background-color: #CCC5BA;
+
 }
 .login-form .remember {
   font-size: 10px;
@@ -698,18 +683,20 @@ textarea.form-input {
 .register-wrapper {
   margin-top: 50px;
   padding: 20px;
-  background-color: #eaeaea;
+  background-color: #fffbfb;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgb(201, 199, 199);
+  box-shadow: 0 4px 6px rgb(136, 136, 136);
 }
 .register-title {
   font-size: 30px;
   font-family: inherit;
   margin-bottom: 20px;
   color: #0a0a0a;
+  text-align: center;
 }
 .register-form .texto {
   margin-bottom: 20px;
+  text-align: center;
 }
 .register-form label {
   font-size: 15px;
@@ -728,15 +715,15 @@ textarea.form-input {
   background-color: #CCC5BA;
   border: none;
   padding: 10px;
-  font-size: 1.2rem;
+  font-size: 10px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 .register-link {
   color: #b6b0a7;
   text-decoration: none;
   font-weight: bold;
+  text-align: center;
 }
 
 
