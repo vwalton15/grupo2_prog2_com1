@@ -179,6 +179,14 @@ hr {
   padding: 0 5px;
 }
 
+.coleccion-title {
+  font-family: var(--title-font-family); 
+  text-align: center;
+  font-size: 35px;
+  margin: 0 auto;
+  display: block;
+}
+
 
 /*====== Main Navbar ======*/
 .btn-toggle-navbar {
@@ -422,6 +430,26 @@ hr {
 
 
 /*====== Product Detail ======*/
+.product-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.product-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.product-description {
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: justify;
+  margin-top: 10px;
+}
 .product-detail {
   background-color: #ffffff;
   border-radius: 8px;
@@ -613,6 +641,102 @@ textarea.form-input {
   padding: 10px 20px;
   border-radius: 4px;
   color: #fff;
+}
+
+
+/* Estilos para la página de login */
+.login-wrapper {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #eaeaea;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgb(201, 199, 199);
+}
+
+.login-title {
+  font-size: 30px;
+  font-family: inherit;
+  margin-bottom: 20px;
+  color: #0a0a0a;
+}
+.login-group {
+  font-size: 15px;
+  font-weight: 500;
+  color: #090909;
+}
+.login-form  {
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 10px;
+  margin-bottom: 10px;
+}
+.login-check-input {
+  margin-bottom: 10px;
+}
+.login-control{
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #0b0b0b;
+}
+.login-form .ingresar {
+  border: none;
+  padding: 10px;
+  font-size: 10p;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #CCC5BA;
+}
+.login-form .remember {
+  font-size: 10px;
+  color: #3c3c3c;
+  margin-bottom: 20px;
+}
+
+/* Estilos para la página de registro */
+.register-wrapper {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #eaeaea;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgb(201, 199, 199);
+}
+.register-title {
+  font-size: 30px;
+  font-family: inherit;
+  margin-bottom: 20px;
+  color: #0a0a0a;
+}
+.register-form .texto {
+  margin-bottom: 20px;
+}
+.register-form label {
+  font-size: 15px;
+  font-weight: 500;
+  color: #090909;
+}
+
+.register-form .form-control {
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 10px;
+  border: 1px solid #0b0b0b;
+  
+}
+.register-form .registrate {
+  background-color: #CCC5BA;
+  border: none;
+  padding: 10px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.register-link {
+  color: #b6b0a7;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 
