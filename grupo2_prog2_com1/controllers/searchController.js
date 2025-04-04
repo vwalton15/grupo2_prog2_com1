@@ -8,7 +8,7 @@ const searchController = {
             { nombre: "Producto 3", descripcion: "Descripción del producto 3" }
         ];
 
-        res.render('searchResults', { resultados, termino });
+        res.render('search-results', { resultados, termino });
     }
 }
 

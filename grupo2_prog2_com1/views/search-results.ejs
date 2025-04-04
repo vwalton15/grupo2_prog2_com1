@@ -15,6 +15,15 @@
 					<div class="col-12">
 						<h2 class="products-title">Resultados de búsqueda</h2>
 					</div>
+					<ul>
+						<% for (let index = 0; index < resultados.length; index++) { %>
+							<li>
+								<h3> <%= resultados[index].nombre %></h3>
+								<p><%= resultados[index].descripcion %></p>
+							</li>
+						<% } %>
+					</ul>
+
 					<!-- Show the "ultimos" products -->
 					<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá van los resultados de
 							búsqueda. <br>
@@ -22,10 +31,9 @@
 							////////////////
 					</h2>
 
-
 					<!-- footer -->
 					<%- include('./partials/footer') %>
-						<!-- /footer -->
+						
 	</body>
 
 </html>
