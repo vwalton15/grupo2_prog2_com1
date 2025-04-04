@@ -10,21 +10,28 @@
 		<%- include('./partials/header') %>
 			<!-- /Header -->
 			<!-- product detail -->
-			<main>
-				<h1><%= producto.name %></h1>
-				<img src="<%= producto.Image %>" alt="<%= producto.name %>" width="300">
-				<p><strong>Descripción:</strong> <%= producto.descripcion %></p>
-			
-				<h2>Comentarios</h2>
-				<ul>
-					<% for (let i = 0; i < producto.comentarios.length; i++) { %>
-						<div class="comentario">
-						  <img src="<%= producto.comentarios[i].imagenPerfil %>" alt="Foto de <%= producto.comentarios[i].usuario %>" class="comentario-img">
-						  <strong><%= producto.comentarios[i].usuario %></strong>
-						  <p><%= producto.comentarios[i].texto %></p>
-						</div>
-					  <% } %>
-				</ul>
+			<main class="product-detail">
+				<div class="product-header">
+					<h1 class="product-title"><%= producto.name %></h1>
+					<img src="<%= producto.Image %>" alt="<%= producto.name %>" class="product-image">
+				</div>
+				<div class="product-info">
+					<p class="product-description"><strong>Descripción:</strong> <%= producto.descripcion %></p>
+				</div>
+				<div class="product-comments">
+					<h2 class="comments-title">Comentarios</h2>
+					<ul class="comments-list">
+						<% for (let i = 0; i < producto.comentarios.length; i++) { %>
+							<li class="comentario">
+								<img src="<%= producto.comentarios[i].imagenPerfil %>" alt="Foto de <%= producto.comentarios[i].usuario %>" class="comentario-img">
+								<div class="comentario-content">
+									<strong class="comentario-usuario"><%= producto.comentarios[i].usuario %></strong>
+									<p class="comentario-texto"><%= producto.comentarios[i].texto %></p>
+								</div>
+							</li>
+						<% } %>
+					</ul>
+				</div>
 			</main>
 			
 			<!-- /product detail -->
