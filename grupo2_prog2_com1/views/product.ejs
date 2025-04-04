@@ -22,7 +22,7 @@
 					<h2 class="comments-title">Comentarios</h2>
 					<ul class="comments-list">
 						<% for (let i = 0; i < producto.comentarios.length; i++) { %>
-							<li class="comentario">
+							<li class="comentarioDetail">
 								<img src="<%= producto.comentarios[i].imagenPerfil %>" alt="Foto de <%= producto.comentarios[i].usuario %>" class="comentario-img">
 								<div class="comentario-content">
 									<strong class="comentario-usuario"><%= producto.comentarios[i].usuario %></strong>

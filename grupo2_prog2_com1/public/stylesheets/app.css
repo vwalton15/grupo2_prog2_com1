@@ -81,7 +81,7 @@ hr {
 .textoTitulo {
   font-family: var(--title-font-family); 
   text-align: center;
-  font-size: 35px;
+  font-size: 45px;
   margin: 0 auto;
   display: block;
 }
@@ -173,19 +173,27 @@ hr {
   color: #e0ddd3;
   background: none;
   border: none;
-  color: #c69b7c;
+  color: #8a5e43;
   font-size: 16px;
   cursor: pointer;
   padding: 0 5px;
 }
 
 .coleccion-title {
-  font-family: var(--title-font-family); 
+  margin-top: 120px; /* Aumenta la distancia desde arriba */
   text-align: center;
   font-size: 35px;
-  margin: 0 auto;
-  display: block;
+  font-weight: bold;
+  font-family: 'Italiana', serif;
+  color: #8a5e43;
+  border-bottom: 2px solid #CCC5BA; /* Línea más gruesa y de otro color */
+  display: block; 
+  width: 60%; /* Ajusta el ancho de la línea */
+  margin: 0 auto; /* Centrar completamente */
+  padding-bottom: 15px; /* Aumenta espacio entre texto y línea */
+  padding-top: 70px; /* Agrega espacio extra por arriba */
 }
+
 
 
 /*====== Main Navbar ======*/
@@ -268,18 +276,33 @@ hr {
 
 
 /*====== Products ======*/
-.comentario {
+.comentarioDetail {
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 5px 0;
 }
+.contenedor-comentarios {
+  display: flex;
+  flex-direction: column; /* Asegura que los comentarios estén en columna */
+  align-items: flex-start; /* Alinea los comentarios a la izquierda */
+  gap: 5px; /* Espacio entre comentarios */
+  margin-top: 8px;
+}
 
-.comentario img {
-  width: 30px;
+.comentario-usuario {
+  display: flex;
+  align-items: center; /* Alinea la imagen y el nombre en línea */
+  gap: 8px; /* Espacio entre la imagen y el texto */
+}
+
+.comentario-img {
+  width: 30px; /* Tamaño más pequeño */
   height: 30px;
   border-radius: 50%;
 }
+
+
 .row{
   margin-top: 70px;
   display: flex;
@@ -305,7 +328,7 @@ hr {
   border-radius: 10px;
   overflow: hidden;
   text-align: center;
-  height: auto; /* Permite que la tarjeta se adapte al contenido */
+  height: auto; 
   min-height: 400px;
   margin: 0 0 20px 0;
 }
@@ -313,8 +336,8 @@ hr {
 .product-box_image img {
   object-fit: cover;
   width: 100%;
-  height: 280px; /* Aumenta la altura para que la imagen sea más grande */
-  object-fit: cover; /* Ajusta la imagen sin deformarla */
+  height: 280px; 
+  object-fit: cover; 
 }
 
 .product-box_data {
@@ -453,7 +476,7 @@ hr {
 }
 
 .footer-data i {
-  color: #CCC5BA;
+  color: #8a5e43;
   font-size: 3.5em;
 }
 
@@ -630,14 +653,14 @@ textarea.form-input {
 .login-wrapper {
   margin-top: 50px;
   padding: 20px;
-  background-color: #ffffff;
+  background-color:  #CCC5BA;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgb(167, 167, 167);
 }
 
 .login-title {
   font-size: 30px;
-  font-family: inherit;
+  font-family: 'Italiana', serif;
   margin-bottom: 20px;
   color: #0a0a0a;
   text-align: center;
@@ -653,6 +676,7 @@ textarea.form-input {
   padding: 10px;
   font-size: 10px;
   margin-bottom: 10px;
+  font-family: 'Italiana', serif;
 }
 .login-check-input {
   margin-bottom: 10px;
@@ -670,8 +694,15 @@ textarea.form-input {
   font-size: 10p;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #CCC5BA;
-
+  background-color: #8a5e4372;
+  display: block; 
+  width: fit-content; 
+  margin-top: 15px; 
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
 }
 .login-form .remember {
   font-size: 10px;
@@ -683,13 +714,14 @@ textarea.form-input {
 .register-wrapper {
   margin-top: 50px;
   padding: 20px;
-  background-color: #fffbfb;
+  background-color: #CCC5BA;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgb(136, 136, 136);
+  
 }
 .register-title {
   font-size: 30px;
-  font-family: inherit;
+  font-family: 'Italiana', serif;
   margin-bottom: 20px;
   color: #0a0a0a;
   text-align: center;
@@ -697,6 +729,7 @@ textarea.form-input {
 .register-form .texto {
   margin-bottom: 20px;
   text-align: center;
+  font-family: 'Italiana', serif;
 }
 .register-form label {
   font-size: 15px;
@@ -711,19 +744,30 @@ textarea.form-input {
   border: 1px solid #0b0b0b;
   
 }
+.register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
 .register-form .registrate {
-  background-color: #CCC5BA;
+  background-color: #8a5e4372;
   border: none;
-  padding: 10px;
-  font-size: 10px;
+  padding: 10px 20px;
+  font-size: 14px;
   border-radius: 5px;
   cursor: pointer;
+  display: block; 
+  width: fit-content; 
+  margin-top: 15px; 
 }
+
 .register-link {
-  color: #b6b0a7;
+  color: #8a5e43;
   text-decoration: none;
   font-weight: bold;
   text-align: center;
+  font-family: 'Italiana', serif;
 }
 
 
