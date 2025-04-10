@@ -248,7 +248,7 @@ hr {
   border: none;
   padding: 10px 25px;
   border-radius: 25px;
-  font-size: 1.3em;
+  font-size: 15px;
   font-family: 'Italiana', serif;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
