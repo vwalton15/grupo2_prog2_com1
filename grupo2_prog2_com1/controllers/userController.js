@@ -9,7 +9,7 @@ const userController = {
         res.render("register")
     },
     perfil: function (req, res) {
-        let usuarioLogueado = usuario.usuario.email;
+        let usuarioLogueado = usuario.usuario;
         let productos= listaProductos.lista;
         res.render("profile", { usuario: usuarioLogueado , productos: productos})
     }
