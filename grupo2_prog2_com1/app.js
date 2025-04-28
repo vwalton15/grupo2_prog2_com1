@@ -5,9 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 
-var indexRouter = require('./routes/index'); // importamos el archivo index.js que contiene la lógica de la ruta de inicio
-var usersRouter = require('./routes/users'); // importamos el archivo users.js que contiene la lógica de la ruta de usuarios
-var products = require('./routes/product');  // importamos el archivo products.js que contiene la lógica de la ruta de productos
+var indexRouter = require('./routes/index'); 
+var usersRouter = require('./routes/users'); 
+var products = require('./routes/product');  
 
 
 var app = express();
@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter); 
-app.use('/products', products);   //hacemos uso del método use() que recibe dos parámetros. El primero un string que será el nombre del recurso, en este caso productos. Al ser una ruta debe empezar con la  / , y el segundo parametro es la ruta del archivo que contiene la lógica de la ruta, en este caso products.js.
+app.use('/products', products);   
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
