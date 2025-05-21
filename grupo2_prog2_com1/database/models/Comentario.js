@@ -6,15 +6,15 @@ module.exports = function (sequelize, dataTypes) {
             primaryKey: true,
             type: dataTypes.INTEGER.UNSIGNED,
         },
-       comentario: {
-        type: dataTypes.INTEGER.TEXT,
-       },
-       created_at: {
-        type: dataTypes.DATE,
-       },
-       updated_at: {
-        type: dataTypes.DATE,
-       },
+        comentario: {
+            type: dataTypes.INTEGER.TEXT,
+        },
+        created_at: {
+            type: dataTypes.DATE,
+        },
+        updated_at: {
+            type: dataTypes.DATE,
+        },
     }
     let config = {
         tableName: "comentarios",

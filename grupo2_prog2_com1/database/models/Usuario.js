@@ -1,32 +1,32 @@
-module.exports = function(sequelize, dataTypes) {
+module.exports = function (sequelize, dataTypes) {
 
     let alias = 'Usuario';
 
     let cols = {
-        id:{
+        id: {
             autoIncrement: true,
             primaryKey: true,
             type: dataTypes.INTEGER
         },
-        email:{
+        email: {
             type: dataTypes.STRING(500),
         },
-        contrasenia:{
+        contrasenia: {
             type: dataTypes.STRING(200),
         },
-        fecha_de_nacimiento:{
+        fecha_de_nacimiento: {
             type: dataTypes.DATE,
         },
-        DNI:{
+        DNI: {
             type: dataTypes.INTEGER.UNSIGNED,
         },
-        foto_perfil:{
+        foto_perfil: {
             type: dataTypes.TEXT
         },
-        createdAt:{
+        createdAt: {
             type: dataTypes.DATE
         },
-        updatedAt:{
+        updatedAt: {
             type: dataTypes.DATE
         }
     }
@@ -37,7 +37,7 @@ module.exports = function(sequelize, dataTypes) {
         underscored: true
     }
 
-    const Usuario = sequelize.define(alias,cols,config);
+    const Usuario = sequelize.define(alias, cols, config);
 
     return Usuario;
 }
