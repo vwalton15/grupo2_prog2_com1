@@ -12,26 +12,35 @@
 			<!-- Novedades -->
 			<div class="container products-wrapper">
 				<div class="row">
-					<div class="col-12">
-						<h2 class="products-title">Resultados de búsqueda</h2>
-					</div>
-					<ul>
-						<% for (let index = 0; index < resultados.length; index++) { %>
-							<li>
-								<h3> <%= resultados[index].nombre %></h3>
-								<p><%= resultados[index].descripcion %></p>
-							</li>
-						<% } %>
-					</ul>
+					<h1 class="resultados ">Resultados de búsqueda</h1>
 
-					<!-- Show the "ultimos" products -->
-					<h2 class="col-12"> <i>
-						//resultados de busqueda
-					</h2>
+					<% if (message) { %>
+						<p>
+							<%= message %>
+						</p>
+						<% } else { %>
+							<ul>
+								<% products.forEach(function(product) { %> 
+									<li>
+										<a href="/products/<%= product._id %>">
+											<%= product.name %>
+										</a> -
+										Publicado por: <a href="/users/<%= product.user._id %>">
+											<%= product.user.name %>
+										</a>
+									</li>
+								<% }); %>
+							</ul>
+							<% } %>
 
-					<!-- footer -->
-					<%- include('./partials/footer') %>
-						
+								<!-- Show the "ultimos" products -->
+								<h2 class="col-12"> <i>
+										//resultados de busqueda
+								</h2>
+
+								<!-- footer -->
+								<%- include('./partials/footer') %>
+
 	</body>
 
 </html>

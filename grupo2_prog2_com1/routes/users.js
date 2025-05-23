@@ -8,5 +8,7 @@ router.get('/login', userController.login);
 router.get('/profile', userController.perfil);
 //router.get('/logout', userController.logout);
 
+router.get('/search', productController.search); 
+
 
 module.exports = router;
