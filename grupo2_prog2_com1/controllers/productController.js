@@ -23,7 +23,7 @@ const productoController = {
         if (resultados.length === 0) {
             return res.render('searchResults', { products: [], message: "No hay resultados para su criterio de búsqueda." });
         }
-
+        
         res.render('searchResults', { products: resultados, message: null });
     }
 };

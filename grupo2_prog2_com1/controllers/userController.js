@@ -125,19 +125,18 @@ const userController = {
     },
     
 }
-//exports.logout = function(req, res)  {
-//    // Destruir la sesión del usuario
-//    req.session.destroy(function (err) {
-//    
-//        if (err) {
-//            console.error('Error al cerrar sesión:', err);
-//            return res.redirect('/'); // Redirige al inicio si hay un error
-//        }
-//
-//        // Opcional: Eliminar la cookie de sesión
-//        res.clearCookie('connect.sid');
-//
-//        res.redirect('/');
-//    });
-//};
+logout = function(req, res)  {
+    // Destruir la sesión del usuario
+    req.session.destroy(function (err) {
+    
+        if (err) {
+            console.error('Error al cerrar sesión:', err);
+            return res.redirect('/'); // Redirige al inicio si hay un error
+        }
+
+       
+        // redirigir al usuario a la página de inicio
+        res.redirect('/');
+    });
+};
 module.exports = userController;

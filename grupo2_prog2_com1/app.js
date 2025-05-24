@@ -42,4 +42,13 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
+//configure session
+const session = require('express-session');
+app.use(session({
+  secret: 'mi_secreto', 
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: false } 
+}));
+
 module.exports = app;
