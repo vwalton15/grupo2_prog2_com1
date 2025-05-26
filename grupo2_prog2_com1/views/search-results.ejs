@@ -17,14 +17,14 @@
 				  <ul>
 					<% for (let index = 0; index < productos.length; index++) { %>
 					  <li>
-						<a href="/products/<%= productos[index].id %>">
+						<a href="<%= productos[index].id %>">
 						  <figure >
 							<img src="<%= productos[index].imagen_producto %>"
 								alt="<%= productos[index].nombre_producto %>">
 						</figure>
 						<article>
 							
-							<div class="product-header">
+							<div >
 								<h1 class="product-title">
 									<%= productos[index].nombre_producto %>
 								</h1>

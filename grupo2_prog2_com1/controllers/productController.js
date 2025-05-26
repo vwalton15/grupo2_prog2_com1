@@ -8,7 +8,7 @@ const productController = {
     detalle: function (req, res) {
        db.Producto.findByPk(req.params.id)
        .then(function(Producto){
-        res.render("product", {producto: Producto})
+        res.render("product", {producto: Producto, usuario: req.session.usuario})
        })
     },
 
@@ -17,8 +17,9 @@ const productController = {
         console.log('Término de búsqueda:', busqueda);
     
         if (!busqueda) {
-            return res.render('search-results', { producto: [], message: "Ingrese un término de búsqueda." });
-        }
+            return res.render('search-results', { productos: [], busqueda: '', usuario: req.session.usuario, message: "Ingrese un término de búsqueda." });
+          }
+          
     
         db.Producto.findAll({
             where: {
@@ -34,7 +35,7 @@ const productController = {
             ]
         })
         .then(function(productos) {
-            res.render("search-results", {productos: productos, busqueda:busqueda});
+            res.render("search-results", {productos: productos, busqueda:busqueda, usuario: req.session.usuario});
         })
         .catch(function(err) {
             console.error(err);
