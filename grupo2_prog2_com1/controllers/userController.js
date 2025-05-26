@@ -17,6 +17,12 @@ const userController = {
                 return res.send(error);
             });
     },
+    mostrarLogin: function (req, res) {
+        if (req.session.user) {
+            return res.redirect("/users/profile");
+        }
+             return res.render("login");
+        },  
 
     login: function (req, res) {
         let userInfo = {
@@ -29,6 +35,7 @@ const userController = {
                 email: userInfo.email,
             }
         })
+        
         .then(function(user) {
             if (!user) {
                 return res.render("register")
@@ -42,33 +49,33 @@ const userController = {
             req.session.user = user;
 
             if (userInfo.recordarme) {
-                res.cookie("user", user, { maxAge: 60000 }); 
+                res.cookie("userEmail", user.email, { maxAge: 60000 }); 
             }
 
-            return res.redirect("/profile"); 
+            return res.redirect("/users/profile"); 
         })
         .catch(function(err) {
             return res.send(err);
         });
+
     },
     profile: function(req, res) {
         if (!req.session.user) {
-            return res.redirect('/login');  
+            return res.redirect('/users/login');  
         }
-    
         return res.render('profile', { usuario: req.session.user });
     },
     
     register: function (req, res) {
         if (req.session.user) {
-            return res.redirect("/profile");
+            return res.redirect("/users/profile");
         }
         return res.render("register", {usuario: {}, errores:{}});
     },
     
     registerProcesamiento: function (req, res) {
         if (req.session.user) {
-            return res.redirect("/profile");
+            return res.redirect("/users/profile");
         } 
     
         let userInfo = {
@@ -124,7 +131,7 @@ const userController = {
     
             db.Usuario.create(nuevoUsuario)
             .then(function () {
-                return res.redirect("/login");
+                return res.redirect("/users/login");
             })
             .catch(function (err) {
                 return res.send(err);
