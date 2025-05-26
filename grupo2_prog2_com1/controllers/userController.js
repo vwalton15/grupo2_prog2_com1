@@ -35,6 +35,7 @@ const userController = {
             }
 
             let validarC = bcryptjs.compareSync(userInfo.contrasenia, user.contrasenia);
+            
             if (!validarC) {
                 return res.send("Contraseña incorrecta");
             }
