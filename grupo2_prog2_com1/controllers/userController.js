@@ -40,7 +40,7 @@ const userController = {
             }
             req.session.user = user;
 
-            if (recordarme) {
+            if (userInfo.recordarme) {
                 res.cookie("user", user, { maxAge: 60000 }); 
             }
 
@@ -50,11 +50,19 @@ const userController = {
             return res.send(err);
         });
     },
+    profile: function(req, res) {
+        if (!req.session.user) {
+            return res.redirect('/login');  
+        }
+    
+        return res.render('profile', { usuario: req.session.user });
+    },
+    
     register: function (req, res) {
         if (req.session.user) {
             return res.redirect("/profile");
         }
-        return res.render("register");
+        return res.render("register", {usuario: {}, errores:{}});
     },
     
     registerProcesamiento: function (req, res) {
@@ -88,6 +96,9 @@ const userController = {
         if (!userInfo.fechaNacimiento) {
             errores.fechaNacimiento = "La fecha de nacimiento es obligatoria.";
         }
+        if (Object.keys(errores).length > 0) {
+            return res.render("register", { errores: errores, usuario: userInfo });
+        }
     
         db.Usuario.findOne({
             where: {
@@ -117,26 +128,27 @@ const userController = {
             .catch(function (err) {
                 return res.send(err);
             });
-    
+            
         })
         .catch(function (err) {
             return res.send(err);
         });
+        
     },
+        
+    logout: function(req, res)  {
+        // Destruir la sesión del usuario
+        req.session.destroy(function (err) {
+        
+            if (err) {
+                console.error('Error al cerrar sesión:', err);
+                return res.redirect('/'); // Redirige al inicio si hay un error
+            }         
+            // redirigir al usuario a la página de inicio
+            res.redirect('/');
+        });
+    }
     
 }
-logout = function(req, res)  {
-    // Destruir la sesión del usuario
-    req.session.destroy(function (err) {
-    
-        if (err) {
-            console.error('Error al cerrar sesión:', err);
-            return res.redirect('/'); // Redirige al inicio si hay un error
-        }
 
-       
-        // redirigir al usuario a la página de inicio
-        res.redirect('/');
-    });
-};
 module.exports = userController;

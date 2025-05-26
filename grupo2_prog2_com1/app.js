@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require('express-session');
 
 
 var indexRouter = require('./routes/index'); 
@@ -21,6 +22,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret: 'mi_secreto', 
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: false } 
+}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter); 
@@ -41,14 +49,5 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-//configure session
-const session = require('express-session');
-app.use(session({
-  secret: 'mi_secreto', 
-  resave: false,
-  saveUninitialized: false,
-  cookie: { secure: false } 
-}));
 
 module.exports = app;

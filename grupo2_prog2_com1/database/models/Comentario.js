@@ -4,10 +4,10 @@ module.exports = function (sequelize, dataTypes) {
         id: {
             autoIncrement: true,
             primaryKey: true,
-            type: dataTypes.INTEGER.UNSIGNED,
+            type: dataTypes.INTEGER,
         },
         comentario: {
-            type: dataTypes.INTEGER.TEXT,
+            type: dataTypes.TEXT,
         },
         created_at: {
             type: dataTypes.DATE,
@@ -19,7 +19,8 @@ module.exports = function (sequelize, dataTypes) {
     let config = {
         tableName: "comentarios",
         timestamps: false,
-    }
+    };
+    
     let Comentario = sequelize.define(alias, cols, config)
     Comentario.associate = function (models) {
         Comentario.belongsTo(models.Usuario, {

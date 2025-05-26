@@ -1,29 +1,29 @@
 module.exports = function (sequelize, dataTypes) {
-    let alias = 'Producto'; // Nombre de la tabla en plural
+    let alias = 'Producto';
 
     let cols = {
         id: {
-            type: DataTypes.INTEGER.UNSIGNED,
+            type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
         usuario_id: {
-            type: DataTypes.INTEGER.UNSIGNED,
+            type: dataTypes.INTEGER,
         },
         imagen_producto: {
-            type: DataTypes.TEXT,
+            type: dataTypes.TEXT,
         },
         nombre_producto: {
-            type: DataTypes.STRING(200),
+            type: dataTypes.STRING(200),
         },
         descripcion: {
-            type: DataTypes.TEXT,
+            type: dataTypes.TEXT,
         },
         creat_at: {
-            type: DataTypes.DATE,
+            type: dataTypes.DATE,
         },
         update_at: {
-            type: DataTypes.DATE,
+            type: dataTypes.DATE,
         },
     }
 
@@ -31,7 +31,7 @@ module.exports = function (sequelize, dataTypes) {
         tableName: 'productos',
         timestamps: false,
     };
-    let Producto = sequelize.define('Producto', attributes, config);
+    let Producto = sequelize.define('Producto', cols, config);
     Producto.associate = function (models) {
         
         Producto.belongsTo(models.Usuario, {
