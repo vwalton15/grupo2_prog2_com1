@@ -30,14 +30,35 @@ app.use(session({
   cookie: { secure: false } 
 }));
 
+// Rutas
 app.use('/', indexRouter);
-app.use('/users', usersRouter); 
-app.use('/products', products);   
+app.use('/users', usersRouter);
+app.use('/products', products);  
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
 });
+
+app.use(function(req, res, next) {
+  // que quiero hacer en cada ida y vuelta 
+  if ( req.session.user != undefined) {
+        res.locals.user = req.session.user;
+  }
+  return next();
+});
+
+// middleware de Cookies hacia Vistas
+app.use(function(req, res, next) {
+  // que quiero hacer en cada ida y vuelta 
+
+  if (req.cookies.user != undefined && req.session.user == undefined) {
+    res.locals.user = req.cookies.user;
+    req.session.user = req.cookies.user;
+  }
+
+  return next();
+})
 
 // error handler
 app.use(function (err, req, res, next) {

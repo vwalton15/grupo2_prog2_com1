@@ -47,10 +47,10 @@ const userController = {
                 return res.send("Contraseña incorrecta");
             }
             req.session.user = user;
-
             if (userInfo.recordarme) {
-                res.cookie("userEmail", user.email, { maxAge: 60000 }); 
+                res.cookie("userEmail", user.email, { maxAge: 1000 * 60 * 60 * 24 * 30 }); // 30 días
             }
+
 
             return res.redirect("/users/profile"); 
         })
