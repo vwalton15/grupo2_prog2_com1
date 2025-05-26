@@ -8,7 +8,7 @@ const session = require('express-session');
 
 var indexRouter = require('./routes/index'); 
 var usersRouter = require('./routes/users'); 
-var products = require('./routes/product');  
+var productRouter = require('./routes/product');  
 
 
 var app = express();
@@ -29,38 +29,35 @@ app.use(session({
   saveUninitialized: false,
   cookie: { secure: false } 
 }));
+app.use((req, res, next) => {
+  console.log(`Petición recibida: ${req.method} ${req.url}`);
+  next();  // Importante llamar a next() para que siga al siguiente middleware o ruta
+});
+app.use(function(req, res, next) {
+  if (req.session.user !== undefined) {
+    res.locals.user = req.session.user;
+  }
+  next();
+});
 
+// Middleware para pasar datos de cookies a las vistas si no hay sesión activa
+app.use(function(req, res, next) {
+  if (req.cookies.user !== undefined && req.session.user === undefined) {
+    res.locals.user = req.cookies.user;
+    req.session.user = req.cookies.user;
+  }
+  next();
+});
 // Rutas
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/products', products);  
+app.use('/products', productRouter);  
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
 });
 
-app.use(function(req, res, next) {
-  // que quiero hacer en cada ida y vuelta 
-  if ( req.session.user != undefined) {
-        res.locals.user = req.session.user;
-  }
-  return next();
-});
-
-// middleware de Cookies hacia Vistas
-app.use(function(req, res, next) {
-  // que quiero hacer en cada ida y vuelta 
-
-  if (req.cookies.user != undefined && req.session.user == undefined) {
-    res.locals.user = req.cookies.user;
-    req.session.user = req.cookies.user;
-  }
-
-  return next();
-})
-
-// error handler
 app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;

@@ -19,17 +19,19 @@ module.exports = function (sequelize, dataTypes) {
         descripcion: {
             type: dataTypes.TEXT,
         },
-        creat_at: {
+        createdAt: {
             type: dataTypes.DATE,
         },
-        update_at: {
+        updatedAt: {
             type: dataTypes.DATE,
         },
     }
 
     let config = {
         tableName: 'productos',
-        timestamps: false,
+        timestamps: true,
+        createdAt: 'createdAt',
+        updatedAt: 'updatedAt',
     };
     let Producto = sequelize.define('Producto', cols, config);
     Producto.associate = function (models) {

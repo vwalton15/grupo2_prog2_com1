@@ -10,32 +10,43 @@
 			<!-- /Header -->
 
 			<!-- Novedades -->
+			<h1 class="resultados">Resultados de búsqueda para:  <%= busqueda %></h1>
 			<div class="container products-wrapper">
 				<div class="row">
-					<h1 class="resultados ">Resultados de búsqueda</h1>
+				 <main class="product-detail">
+				  <ul>
+					<% for (let index = 0; index < productos.length; index++) { %>
+					  <li>
+						<a href="/products/<%= productos[index].id %>">
+						  <figure >
+							<img src="<%= productos[index].imagen_producto %>"
+								alt="<%= productos[index].nombre_producto %>">
+						</figure>
+						<article>
+							
+							<div class="product-header">
+								<h1 class="product-title">
+									<%= productos[index].nombre_producto %>
+								</h1>
+							</div>
+							<div class="product-info">
+								<p class="product-description">
+									<%= productos[index].descripcion %>
+								</p>
+							</div>
 
-					<% if (message) { %>
-						<p>
-							<%= message %>
-						</p>
-						<% } else { %>
-							<ul>
-								<% products.forEach(function(product) { %> 
-									<li>
-										<a href="/products/<%= product._id %>">
-											<%= product.name %>
-										</a> -
-										Publicado por: <a href="/users/<%= product.user._id %>">
-											<%= product.user.name %>
-										</a>
-									</li>
-								<% }); %>
-							</ul>
-							<% } %>
 
-								<!-- Show the "ultimos" products -->
+						</article>
+						</a>
+					  </li>
+					<% } %>
+				  </ul>
+				</main>
+				</div> 
+			  </div> 
+							  <!-- Show the "ultimos" products -->
 								<h2 class="col-12"> <i>
-										//resultados de busqueda
+									
 								</h2>
 
 								<!-- footer -->

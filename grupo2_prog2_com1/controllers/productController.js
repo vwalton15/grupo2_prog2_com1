@@ -1,32 +1,49 @@
-const productos = require('../db/product');
+const db = require("../database/models");
+let Op = db.Sequelize.Op;
 
 const productController = {
     index:function (req, res) { 
         res.render('products', { products , usuario: usuarioInfo  }); 
       },
     detalle: function (req, res) {
-        let productoFijo = productos.lista[0]; 
-        let usuarioInfo= productos.usuario;
-        res.render('product', { producto: productoFijo, usuario: usuarioInfo }); 
+       db.Producto.findByPk(req.params.id)
+       .then(function(Producto){
+        res.render("product", {producto: Producto})
+       })
     },
+
     search: function (req, res) {
-        const searchTerm = req.query.q; 
-        if (!searchTerm) {
-            return res.render('searchResults', { products: [], message: "Ingrese un término de búsqueda." });
-        }
-
+        let busqueda = req.query.search;
+        console.log('Término de búsqueda:', busqueda);
     
-        const resultados = productos.lista.filter(function(producto) {
-            return producto.name.toLowerCase().includes(searchTerm.toLowerCase());
-        });
-
-        if (resultados.length === 0) {
-            return res.render('searchResults', { products: [], message: "No hay resultados para su criterio de búsqueda." });
+        if (!busqueda) {
+            return res.render('search-results', { producto: [], message: "Ingrese un término de búsqueda." });
         }
-        
-        res.render('searchResults', { products: resultados, message: null });
+    
+        db.Producto.findAll({
+            where: {
+                nombre_producto: {
+                    [Op.like]: "%" + busqueda + "%"
+                }
+            },
+            include: [
+                { 
+                    model: db.Usuario, 
+                    as: 'usuario' 
+                }
+            ]
+        })
+        .then(function(productos) {
+            res.render("search-results", {productos: productos, busqueda:busqueda});
+        })
+        .catch(function(err) {
+            console.error(err);
+            res.render("search-results", { productos: []});
+        })
     }
-};
+        
+    };
+
 
 module.exports = productController;
 

@@ -12,8 +12,8 @@
 			<!-- product detail -->
 			<main class="product-detail">
 				<div class="product-header">
-					<h1 class="product-title"><%= producto.name %></h1>
-					<img src="<%= producto.Image %>" alt="<%= producto.name %>" class="product-image">
+					<h1 class="product-title"><%= producto.nombre_producto %></h1>
+					<img src="<%= producto.imagen_producto %>" alt="<%= producto.nombre_producto%>" class="product-image">
 				</div>
 				<div class="product-info">
 					<p class="product-description"><strong>Descripción:</strong> <%= producto.descripcion %></p>
@@ -23,7 +23,7 @@
 					<ul class="comments-list">
 						<% for (let i = 0; i < producto.comentarios.length; i++) { %>
 							<li class="comentarioDetail">
-								<img src="<%= producto.comentarios[i].imagenPerfil %>" alt="Foto de <%= producto.comentarios[i].usuario %>" class="comentario-img">
+								<img src="<%= producto.comentarios[i].imagen_perfil %>" alt="Foto de <%= producto.comentarios[i].id_usuario %>" class="comentario-img">
 								<div class="comentario-content">
 									<strong class="comentario-usuario"><%= producto.comentarios[i].usuario %></strong>
 									<p class="comentario-texto"><%= producto.comentarios[i].texto %></p>

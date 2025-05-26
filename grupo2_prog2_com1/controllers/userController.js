@@ -25,6 +25,7 @@ const userController = {
         },  
 
     login: function (req, res) {
+        
         let userInfo = {
             email: req.body.email,
             contrasenia: req.body.contrasenia,
@@ -40,6 +41,9 @@ const userController = {
             if (!user) {
                 return res.render("register")
             }
+
+            console.log('Contraseña enviada:', userInfo.contrasenia);
+            console.log('Contraseña guardada (hash):', user.contrasenia);
 
             let validarC = bcryptjs.compareSync(userInfo.contrasenia, user.contrasenia);
             
@@ -61,10 +65,25 @@ const userController = {
     },
     profile: function(req, res) {
         if (!req.session.user) {
-            return res.redirect('/users/login');  
+            return res.redirect('/users/login');
         }
-        return res.render("profile", { usuario: req.session.user });
+    
+        // Supongamos que tienes un modelo Producto para traer los productos
+        db.Producto.findAll({
+            where: { userId: req.session.user.id } // o lo que corresponda para filtrar productos del usuario
+        })
+        .then(function(productos) {
+            return res.render('profile', { 
+                usuario: req.session.user,
+                productos: productos
+            });
+        })
+        .catch(function(error) {
+            console.log(error);
+            return res.render('profile', { usuario: req.session.user, productos: [] }); // fallback
+        });
     },
+    
     
     register: function (req, res) {
         if (req.session.user) {
