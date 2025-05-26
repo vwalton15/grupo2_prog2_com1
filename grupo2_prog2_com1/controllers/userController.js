@@ -48,7 +48,7 @@ const userController = {
             }
             req.session.user = user;
             if (userInfo.recordarme) {
-                res.cookie("userEmail", user.email, { maxAge: 1000 * 60 * 60 * 24 * 30 }); // 30 días
+                res.cookie("userEmail", user.email, { maxAge: 60000 }); 
             }
 
 
@@ -63,7 +63,7 @@ const userController = {
         if (!req.session.user) {
             return res.redirect('/users/login');  
         }
-        return res.render('profile', { usuario: req.session.user });
+        return res.render("profile", { usuario: req.session.user });
     },
     
     register: function (req, res) {
