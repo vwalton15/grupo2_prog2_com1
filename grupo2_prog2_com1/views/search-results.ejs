@@ -11,6 +11,9 @@
 
 			<!-- Novedades -->
 			<h1 class="resultados">Resultados de búsqueda para:  <%= busqueda %></h1>
+			<% if (message && message.length > 0) { %>
+				<p class="mensaje-no-resultados"><%= message %></p>
+			<% } %>
 			<div class="container products-wrapper">
 				<div class="row">
 				 <main class="product-detail">

@@ -2,7 +2,7 @@ const db = require("../database/models");
 let Op = db.Sequelize.Op;
 
 const productController = {
-    index:function (req, res) { 
+    index:function (_req, res) { 
         res.render('products', { products , usuario: usuarioInfo  }); 
       },
     detalle: function (req, res) {
@@ -35,11 +35,18 @@ const productController = {
             ]
         })
         .then(function(productos) {
-            res.render("search-results", {productos: productos, busqueda:busqueda, usuario: req.session.usuario});
+            let message = "";
+            if (productos.length === 0) {
+                message = "No se encontraron productos que coincidan con tu búsqueda.";
+            }
+            res.render("search-results", {productos: productos, busqueda: busqueda, usuario: req.session.usuario, message});
         })
         .catch(function(err) {
             console.error(err);
-            res.render("search-results", { productos: []});
+            res.render("search-results", {  productos: [],
+                busqueda: busqueda || '', 
+                usuario: req.session.usuario,
+                message: "No se encontraron productos que coincidan con tu búsqueda."});
         })
     }
         
