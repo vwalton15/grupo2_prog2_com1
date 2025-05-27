@@ -132,6 +132,7 @@ VALUES (3,10,'!Divinos!');
 INSERT INTO comentarios (usuario_id, producto_id, comentario)
 VALUES (3,2,'!Divinos!');
 
+ALTER TABLE usuarios CHANGE COLUMN title email VARCHAR(500)
 
 
 
