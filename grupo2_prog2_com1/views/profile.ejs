@@ -1,53 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <title>Kylina Jewels - Perfil</title>
     <!-- Include Head -->
     <%- include('./partials/head') %>
 </head>
+
 <body>
     <!-- Header -->
     <%- include('./partials/headerLogueado') %>
-    <!-- /Header -->
+        <!-- /Header -->
 
-    <!-- Datos del usuario -->
-    <section class="info-usuario container products-wrapper">
-        <div class="row">
-            <div class="img-container offset-3 col-2">
-                <img src="<%= usuario.fotoPerfil %>" alt="foto de perfil" class="foto-perfil">
-            </div>
-            <div class="data-container col-6">
-                <div class="d-flex align">
-                    <h1 class="main-title">
-                        <%= usuario.usuario %>
-                        <a href="profile-edit.html">
-                            <i class="fas fa-cog"></i>
-                        </a>
+        <!-- Datos del usuario -->
+        <section class="info-usuario container products-wrapper">
+            <div class="row">
+                <div class="img-container offset-3 col-2">
+                    <img src="<%= usuario.fotoPerfil %>" alt="foto de perfil" class="foto-perfil">
+                </div>
+                <div class="data-container col-6">
+                    <div class="d-flex align">
+                        <h1 class="main-title">
+                            <%= usuario.usuario %>
+                                <a href="profile-edit.html">
+                                    <i class="fas fa-cog"></i>
+                                </a>
+                        </h1>
+                        <a class="btn mt-3 ml-4" href="">SEGUIR</a>
+                    </div>
+                    <h1>Bienvenido, <%= usuario.email %>
                     </h1>
-                    <a class="btn mt-3 ml-4" href="">SEGUIR</a>
-                </div>
-                <h1>Bienvenido, <%= usuario.nombre %></h1>
-                <p>Email: <%= usuario.email %></p>
-                <div>
-                    <ul class="">
-                        <li>8 productos</li>
-                        <li>200 seguidores</li>
-                        <li>300 comentarios</li>
-                    </ul>
+                    <p>Total de productos cargados: <%= totalProductos %></p>
                 </div>
             </div>
+        </section>
+        <div class="container products-wrapper">
+            <h2> Mis productos  </h2>
+            <ul>
+                <% for (let i=0; i < productos.length; i++) { %> 
+                    <li>
+                        <a href="/products/<%= productos[i].id %>">
+                            <img src="<%= productos[i].imagen_producto %>">
+                            <p>
+                                <%= productos[i].nombre_producto %>
+                            </p>
+                        </a>"
+                    </li>
+                    <% } %>
+            </ul>
         </div>
-    </section>
-    <!-- /Datos del usuario -->
+        <!-- /Mis productos -->
 
-    <!-- Mis productos -->
-    <div class="container products-wrapper">
-        <%- include("./partials/productos", { productos: productos }) %>
-    </div>
-    <!-- /Mis productos -->
-
-    <!-- Footer -->
-    <%- include('./partials/footer') %>
-    <!-- /Footer -->
+        <!-- Footer -->
+        <%- include('./partials/footer') %>
+            <!-- /Footer -->
 </body>
+
 </html>
