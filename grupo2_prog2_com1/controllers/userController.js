@@ -75,7 +75,8 @@ const userController = {
         .then(function(productos) {
             return res.render('profile', { 
                 usuario: req.session.user,
-                productos: productos
+                productos: productos,
+                totalProductos: productos.length
             });
         })
         .catch(function(error) {
