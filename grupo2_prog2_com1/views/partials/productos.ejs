@@ -2,20 +2,20 @@
     <% for(let i = 0; i < productos.length; i++) { %>
         <div class="col-12 col-sm-6 col-lg-3">
             <section class="product-box">
-                <a href="/products/detalle/<%= productos[i].id %>">
+                <a href="/products/<%= productos[i].id%>">
                     <figure class="product-box_image">
-                        <img src="<%= productos[i].Image %>" alt="<%= productos[i].nombre %>">
+                        <img src="<%= productos[i].imagen_producto %>" alt="<%= productos[i].nombre_producto %>">
                     </figure>
                     <article class="product-box_data">
-                        <h2><%= productos[i].name %></h2>
+                        <h2><%= productos[i].nombre_producto %></h2>
                         <p><%= productos[i].descripcion %></p>
                         <% for (let j = 0; j < productos[i].comentarios.length; j++) { %>
                             <article class="contenedor-comentarios">
                                 <div class="comentario-usuario">
-                                    <img src="<%= productos[i].comentarios[j].imagenPerfil %>" class="comentario-img" alt="Foto de <%= productos[i].comentarios[j].usuario %>" class="comentario-img">
-                                    <strong><%= productos[i].comentarios[j].usuario %></strong>
+                                    <img src="<%= productos[i].comentarios[j].usuario.foto_perfil %>" class="comentario-img" alt="Foto de <%= productos[i].comentarios[j].usuario.email %>" class="comentario-img">
+                                    <strong><%= productos[i].comentarios[j].usuario.email %></strong>
                                   </div>
-                                  <p><%= productos[i].comentarios[j].texto %></p>
+                                  <p><%= productos[i].comentarios[j].comentario %></p>
                             </article>
                           <% } %>
                     </article>

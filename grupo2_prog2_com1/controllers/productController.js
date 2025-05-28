@@ -6,10 +6,22 @@ const productController = {
         res.render('products', { products , usuario: usuarioInfo  }); 
       },
     detalle: function (req, res) {
-       db.Producto.findByPk(req.params.id)
-       .then(function(Producto){
-        res.render("product", {producto: Producto, usuario: req.session.usuario})
+       db.Producto.findByPk(req.params.id,{
+        include:[
+                {association: 'comentarios',
+                    include: [{association: 'usuario'}]
+                }, 
+                {association: 'usuario',
+                    include: [{association: 'comentarios'}]
+                },   
+            ]
        })
+       .then(function(Producto){
+            res.render("product", {producto: Producto, usuario: req.session.usuario, })
+       })
+       .catch(function(error){
+                return res.send(error);
+        });
     },
 
     search: function (req, res) {

@@ -23,10 +23,10 @@
 					<ul class="comments-list">
 						<% for (let i = 0; i < producto.comentarios.length; i++) { %>
 							<li class="comentarioDetail">
-								<img src="<%= producto.comentarios[i].imagen_perfil %>" alt="Foto de <%= producto.comentarios[i].id_usuario %>" class="comentario-img">
+								<img src="<%= producto.comentarios[i].usuario.foto_perfil %>" alt="Foto de <%= producto.comentarios[i].usuario.email %>" class="comentario-img">
 								<div class="comentario-content">
-									<strong class="comentario-usuario"><%= producto.comentarios[i].usuario %></strong>
-									<p class="comentario-texto"><%= producto.comentarios[i].texto %></p>
+									<strong class="comentario-usuario"><%= producto.comentarios[i].usuario.email %></strong>
+									<p class="comentario-texto"><%= producto.comentarios[i].comentario %></p>
 								</div>
 							</li>
 						<% } %>
