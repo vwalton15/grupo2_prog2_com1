@@ -4,7 +4,25 @@ let Op = db.Sequelize.Op;
 
 const productController = {
     index: function (_req, res) {
-        res.render('products', { products, usuario: usuarioInfo });
+        db.Producto.findAll({
+            include: [ {
+                association: 'usuario'
+              },
+              {
+                association: 'comentarios',
+                include: ['usuario']
+              }]
+        })
+        .then(function(products) {
+            res.render('products', {
+                products: products,
+                usuario: null 
+            });
+        })
+        .catch(function(error) {
+            console.error(error);
+            res.send(error);
+        });
     },
     detalle: function (req, res) {
         db.Producto.findByPk(req.params.id, {
@@ -19,12 +37,20 @@ const productController = {
                 },
             ]
         })
-            .then(function (Producto) {
-                res.render("product", { producto: Producto, usuario: req.session.usuario, })
-            })
-            .catch(function (error) {
-                return res.send(error);
+        .then(function (Producto) {
+            if (!Producto) {
+                return res.send("Producto no encontrado");
+            }
+    
+            res.render("product", {
+                producto: Producto,
+                cargado: Producto.usuario,     // usuario que lo cargó
+                usuario: req.session.user || null // usuario logueado (para el header, si hace falta)
             });
+        })
+        .catch(function (error) {
+            return res.send(error);
+        });
     },
 
     search: function (req, res) {

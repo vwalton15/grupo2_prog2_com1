@@ -9,6 +9,7 @@
                     <article class="product-box_data">
                         <h2><%= productos[i].nombre_producto %></h2>
                         <p><%= productos[i].descripcion %></p>
+                        <a href="/users/profile/<%= productos[i].usuario.id  %>"> Cargado por: <%= productos[i].usuario.email %></a>
                         <% for (let j = 0; j < productos[i].comentarios.length; j++) { %>
                             <article class="contenedor-comentarios">
                                 <div class="comentario-usuario">

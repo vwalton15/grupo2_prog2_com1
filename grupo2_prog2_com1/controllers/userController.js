@@ -176,6 +176,20 @@ const userController = {
             // redirigir al usuario a la página de inicio
             res.redirect('/');
         });
+    },
+    usuario: function (req, res) {
+        db.Usuario.findByPk(req.params.id, {
+            include: ["productos"]
+        })
+        .then(function (usuario) {
+            if(!usuario) {
+                return res.send("usuario no encontrado")
+            }
+            return res.render("profile", {usuario: usuario, productos: usuario.productos, totalProductos: usuario.productos.length});
+        })
+        .catch(function(err){
+            return res.send(err)
+        })
     }
 
 }

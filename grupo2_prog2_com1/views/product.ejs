@@ -14,6 +14,7 @@
 				<div class="product-header">
 					<h1 class="product-title"><%= producto.nombre_producto %></h1>
 					<img src="<%= producto.imagen_producto %>" alt="<%= producto.nombre_producto%>" class="product-image">
+					<a href="/users/profile/<%= cargado.id  %>"> Cargado por: <%= cargado.email %></a>
 				</div>
 				<div class="product-info">
 					<p class="product-description"><strong>Descripción:</strong> <%= producto.descripcion %></p>

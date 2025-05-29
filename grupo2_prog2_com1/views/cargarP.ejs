@@ -1,10 +1,33 @@
-<form action="/products/cargar" method="post">
-    <label> Imagen:</label>
-    <input type="text" name="imagen_producto" placeholder="Ingresa la URL de la imagen del producto" required>
-    <label> Nombre del producto:</label>
-    <input type="text" name="nombre_producto" placeholder="Ingresa el nombre del producto" required>
-    <label> Descripción:</label>
-    <textarea name="descripcion" placeholder="Ingresa la descripción del producto" required></textarea>
+<!DOCTYPE html>
+<html lang="es">
+<title>Kylina jewels</title>
+<!-- Include Head -->
+<%- include('./partials/head') %>
 
-    <button type="submit"> Cargar producto</button>
-</form>
+	<body>
+		<!-- Header -->
+		<%- include('./partials/header') %>
+			<!-- /Header -->
+            <div class="container register-wrapper"> 
+                <form action="/products/cargar" method="post"  class="register-form">
+                    <div>
+                        <h2 class="register-title">Carga tu producto</h2>
+                    </div>
+                    <label> Imagen:</label>
+                    <input type="text" name="imagen_producto" class="form-control" placeholder="Ingresa la URL de la imagen del producto" required>
+                    <label> Nombre del producto:</label>
+                    <input type="text" name="nombre_producto" class="form-control" placeholder="Ingresa el nombre del producto" required>
+                    <label> Descripción:</label>
+                    <input name="descripcion" class="form-control" placeholder="Ingresa la descripción del producto" required></input>
+                
+                    <button type="submit" class="registrate"> Cargar producto</button>
+                </form>
+                </div>
+			
+
+			<!-- footer -->
+			<%- include('./partials/footer') %>
+				<!-- /footer -->
+	</body>
+
+</html>
