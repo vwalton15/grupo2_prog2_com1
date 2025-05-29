@@ -10,15 +10,6 @@
                         <h2><%= productos[i].nombre_producto %></h2>
                         <p><%= productos[i].descripcion %></p>
                         <a href="/users/profile/<%= productos[i].usuario.id  %>"> Cargado por: <%= productos[i].usuario.email %></a>
-                        <% for (let j = 0; j < productos[i].comentarios.length; j++) { %>
-                            <article class="contenedor-comentarios">
-                                <div class="comentario-usuario">
-                                    <img src="<%= productos[i].comentarios[j].usuario.foto_perfil %>" class="comentario-img" alt="Foto de <%= productos[i].comentarios[j].usuario.email %>" class="comentario-img">
-                                    <strong><%= productos[i].comentarios[j].usuario.email %></strong>
-                                  </div>
-                                  <p><%= productos[i].comentarios[j].comentario %></p>
-                            </article>
-                          <% } %>
                     </article>
                 </a>
             </section>

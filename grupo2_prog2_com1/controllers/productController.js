@@ -3,7 +3,7 @@ const db = require("../database/models");
 let Op = db.Sequelize.Op;
 
 const productController = {
-    index: function (_req, res) {
+    index: function (req, res) {
         db.Producto.findAll({
             include: [ {
                 association: 'usuario'
@@ -26,16 +26,17 @@ const productController = {
     },
     detalle: function (req, res) {
         db.Producto.findByPk(req.params.id, {
-            include: [
-                {
-                    association: 'comentarios',
-                    include: [{ association: 'usuario' }]
-                },
-                {
-                    association: 'usuario',
-                    include: [{ association: 'comentarios' }]
-                },
-            ]
+        include: [
+            {
+                association: 'comentarios',
+                include: ['usuario'],
+                separate: true,
+                order: [['createdAt', 'DESC']],
+            },
+            {
+                association: 'usuario'
+            }
+        ]
         })
         .then(function (Producto) {
             if (!Producto) {
@@ -112,8 +113,29 @@ const productController = {
         .catch(function (error) {
             return res.send(error );
         });
-    }
-    
+    },
+    comentario: function (req,res){
+        let usuario = req.session.user;
+        if (!usuario){
+            return res.redirect("/users/login");
+        }
+        let comentarioNuevo ={
+            usuario_id: usuario.id,
+            producto_id: req.params.id,
+            comentario: req.body.comentario,
+            createdAt: new Date(),
+            updatedAt: new Date(),
+        };
+
+        db.Comentario.create(comentarioNuevo)
+        .then(function(){
+            let productoId = req.params.id;
+            return res.redirect("/products/" + productoId);
+        })
+        .catch(function (error) {
+            return res.send(error);
+        });
+    }    
 
 };
 

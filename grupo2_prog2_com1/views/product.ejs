@@ -26,11 +26,19 @@
 							<li class="comentarioDetail">
 								<img src="<%= producto.comentarios[i].usuario.foto_perfil %>" alt="Foto de <%= producto.comentarios[i].usuario.email %>" class="comentario-img">
 								<div class="comentario-content">
-									<strong class="comentario-usuario"><%= producto.comentarios[i].usuario.email %></strong>
+									<strong class="comentario-usuario"><a href="/users/profile/<%=producto.comentarios[i].usuario.id%>"><%= producto.comentarios[i].usuario.email %></a></strong>
 									<p class="comentario-texto"><%= producto.comentarios[i].comentario %></p>
 								</div>
 							</li>
 						<% } %>
+					<% if (usuario){ %>
+						<form action="/products/comentario/<%= producto.id %>" method="POST" class="comment-form">
+							<textarea name="comentario" placeholder="Escribe tu comentario aquí..." ></textarea>
+							<button type="submit" class="btn btn-primary">Enviar Comentario</button>
+						</form>
+					<% } else { %>
+						<p class="comentario-texto"><a href="/users/login">Inicia sesión</a> para comentar.</p>
+					<% } %>
 					</ul>
 				</div>
 			</main>
