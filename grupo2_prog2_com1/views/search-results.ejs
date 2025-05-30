@@ -12,22 +12,21 @@
 			<!-- Novedades -->
 			<h1 class="resultados">Resultados de búsqueda para:  <%= busqueda %></h1>
 			<% if (message && message.length > 0) { %>
-				<p class="mensaje-no-resultados"><%= message %></p>
+				<p class="no-resultados"><%= message %></p>
 			<% } %>
+			<main >
 			<div class="container products-wrapper">
-				<div class="row">
-				 <main class="product-detail">
-				  <ul>
+				
 					<% for (let index = 0; index < productos.length; index++) { %>
-					  <li>
-						<a href="<%= productos[index].id %>">
+					  
+						<a class="search-detail" href="<%= productos[index].id %>">
 						  <figure >
 							<img src="<%= productos[index].imagen_producto %>"
-								alt="<%= productos[index].nombre_producto %>">
+								alt="<%= productos[index].nombre_producto %>" class="product-image">
 						</figure>
-						<article>
+						<article >
 							
-							<div >
+							<div class="product-header">
 								<h1 class="product-title">
 									<%= productos[index].nombre_producto %>
 								</h1>
@@ -41,17 +40,12 @@
 
 						</article>
 						</a>
-					  </li>
+					  
 					<% } %>
-				  </ul>
-				</main>
-				</div> 
+				
 			  </div> 
-							  <!-- Show the "ultimos" products -->
-								<h2 class="col-12"> <i>
-									
-								</h2>
-
+			</main>				  <!-- Show the "ultimos" products -->
+			
 								<!-- footer -->
 								<%- include('./partials/footer') %>
 

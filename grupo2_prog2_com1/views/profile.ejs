@@ -30,18 +30,18 @@
         </section>
         <div class="container products-wrapper">
             <h2> Mis productos  </h2>
-            <ul>
+            
                 <% for (let i=0; i < productos.length; i++) { %> 
-                    <li>
-                        <a href="/products/<%= productos[i].id %>">
-                            <img src="<%= productos[i].imagen_producto %>">
+                   
+                        <a class="search-detail" href="/products/<%= productos[i].id %>">
+                            <img src="<%= productos[i].imagen_producto %>" class="product-image">
                             <p>
                                 <%= productos[i].nombre_producto %>
                             </p>
                         </a>"
-                    </li>
+                    
                     <% } %>
-            </ul>
+            
         </div>
         <!-- /Mis productos -->
 
