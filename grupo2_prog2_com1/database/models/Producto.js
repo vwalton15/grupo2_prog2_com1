@@ -35,14 +35,14 @@ module.exports = function (sequelize, dataTypes) {
     };
     let Producto = sequelize.define('Producto', cols, config);
     Producto.associate = function (models) {
-        
+
         Producto.belongsTo(models.Usuario, {
-            as: 'usuario', 
-            foreignKey: 'usuario_id' ,
+            as: 'usuario',
+            foreignKey: 'usuario_id',
         });
         Producto.hasMany(models.Comentario, {
-            as: 'comentarios', 
-            foreignKey: 'producto_id' 
+            as: 'comentarios',
+            foreignKey: 'producto_id'
         });
     };
     return Producto;

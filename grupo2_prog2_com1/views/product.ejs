@@ -12,46 +12,59 @@
 			<!-- product detail -->
 			<main class="product-detail">
 				<div class="product-header">
-					<h1 class="product-title"><%= producto.nombre_producto %></h1>
-					<img src="<%= producto.imagen_producto %>" alt="<%= producto.nombre_producto%>" class="product-image">
+					<h1 class="product-title">
+						<%= producto.nombre_producto %>
+					</h1>
+					<img src="<%= producto.imagen_producto %>" alt="<%= producto.nombre_producto%>"
+						class="product-image">
 					<a href="/users/profile/<%= cargado.id  %>"> Cargado por: <%= cargado.email %></a>
 				</div>
 				<div class="product-info">
-					<p class="product-description"><strong>Descripción:</strong> <%= producto.descripcion %></p>
+					<p class="product-description"><strong>Descripción:</strong>
+						<%= producto.descripcion %>
+					</p>
 				</div>
 				<div class="product-comments">
 					<h2 class="comments-title">Comentarios</h2>
 					<ul class="comments-list">
-						<% for (let i = 0; i < producto.comentarios.length; i++) { %>
+						<% for (let i=0; i < producto.comentarios.length; i++) { %>
 							<li class="comentarioDetail">
-								<img src="<%= producto.comentarios[i].usuario.foto_perfil %>" alt="Foto de <%= producto.comentarios[i].usuario.email %>" class="comentario-img">
+								<img src="<%= producto.comentarios[i].usuario.foto_perfil %>"
+									alt="Foto de <%= producto.comentarios[i].usuario.email %>" class="comentario-img">
 								<div class="comentario-content">
-									<strong class="comentario-usuario"><a href="/users/profile/<%=producto.comentarios[i].usuario.id%>"><%= producto.comentarios[i].usuario.email %></a></strong>
-									<p class="comentario-texto"><%= producto.comentarios[i].comentario %></p>
+									<strong class="comentario-usuario"><a
+											href="/users/profile/<%=producto.comentarios[i].usuario.id%>">
+											<%= producto.comentarios[i].usuario.email %>
+										</a></strong>
+									<p class="comentario-texto">
+										<%= producto.comentarios[i].comentario %>
+									</p>
 								</div>
 							</li>
-						<% } %>
-					<% if (usuario){ %>
-						<form action="/products/comentario/<%= producto.id %>" method="POST" class="comment-form">
-							<textarea name="comentario" placeholder="Escribe tu comentario aquí..." ></textarea>
-							<button type="submit" class="btn btn-primary">Enviar Comentario</button>
-						</form>
-					<% } else { %>
-						<p class="comentario-texto"><a href="/users/login">Inicia sesión</a> para comentar.</p>
-					<% } %>
+							<% } %>
+								<% if (usuario){ %>
+									<form action="/products/comentario/<%= producto.id %>" method="POST"
+										class="comment-form">
+										<textarea name="comentario"
+											placeholder="Escribe tu comentario aquí..."></textarea>
+										<button type="submit" class="btn btn-primary">Enviar Comentario</button>
+									</form>
+									<% } else { %>
+										<p class="comentario-texto"><a href="/users/login">Inicia sesión</a> para
+											comentar.</p>
+										<% } %>
 					</ul>
 				</div>
 			</main>
-			
+
 			<!-- /product detail -->
 
 			<!-- footer -->
 			<%- include('./partials/footer') %>
-			<!-- /footer -->
+				<!-- /footer -->
 
 	</body>
 
 </html>
 
 <!-- // dentro los tags, que imprimiran lo que retorne el metodo, incluimos a las vistas los partials mediante el metodo include (), que recibe un parametro strign que sera la ruta del archivo que queremos incluir  -->
-

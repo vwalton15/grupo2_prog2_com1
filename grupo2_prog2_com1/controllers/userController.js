@@ -68,9 +68,9 @@ const userController = {
             return res.redirect('/users/login');
         }
         db.Producto.findAll({
-            where: { usuario_id: req.session.user.id } 
+            where: { usuario_id: req.session.user.id }
         })
-    
+
             .then(function (productos) {
                 console.log(productos)
                 let totalProductos = productos.length;
@@ -181,15 +181,15 @@ const userController = {
         db.Usuario.findByPk(req.params.id, {
             include: ["productos"]
         })
-        .then(function (usuario) {
-            if(!usuario) {
-                return res.send("usuario no encontrado")
-            }
-            return res.render("profile", {usuario: usuario, productos: usuario.productos, totalProductos: usuario.productos.length});
-        })
-        .catch(function(err){
-            return res.send(err)
-        })
+            .then(function (usuario) {
+                if (!usuario) {
+                    return res.send("usuario no encontrado")
+                }
+                return res.render("profile", { usuario: usuario, productos: usuario.productos, totalProductos: usuario.productos.length });
+            })
+            .catch(function (err) {
+                return res.send(err)
+            })
     }
 
 }

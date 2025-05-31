@@ -17,13 +17,6 @@
 					<h1 class="textoTitulo">Kylina Jewels</h1>
 				</a>
 			</div>
-
-			<div class="col-12 col-md-4">
-				<a class="main-header_credit-link">
-					<i class="fas fa-hand-holding-usd"></i>
-					Todas las opiniones en un solo lugar.
-				</a>
-			</div>
 		</div>
 
 		<button class="btn-toggle-navbar">
@@ -38,7 +31,7 @@
 
 			<ul class="right-navbar">
 				<% if (usuario) { %>
-				
+
 					<li class="cont-usuario">
 						<a href="/users/profile">
 							<span class="titulo-usuario">
@@ -53,7 +46,7 @@
 					</li>
 					<li><a href="/users/logout" class="cerrarS">Cerrar sesión</a></li>
 					<% } else { %>
-						
+
 						<li><a href="/users/login" class="iniciarS">Iniciar sesión</a></li>
 						<% } %>
 			</ul>

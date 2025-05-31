@@ -20,7 +20,7 @@ module.exports = function (sequelize, dataTypes) {
         tableName: "comentarios",
         timestamps: false,
     };
-    
+
     let Comentario = sequelize.define(alias, cols, config)
     Comentario.associate = function (models) {
         Comentario.belongsTo(models.Usuario, {

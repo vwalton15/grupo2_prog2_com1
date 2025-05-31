@@ -1,12 +1,12 @@
 const products = {
-    usuario:{
-          email: "emiliamernes@gmail.com",
-          usuario: "emilia_mernes",
-          contrasenia: "jagger",
-          fechaNacimiento: "2000-12-02",
-          nroDocumento: "42956902",
-          fotoPerfil: '/images/fotoPerfil.jpg'
-        },
+    usuario: {
+        email: "emiliamernes@gmail.com",
+        usuario: "emilia_mernes",
+        contrasenia: "jagger",
+        fechaNacimiento: "2000-12-02",
+        nroDocumento: "42956902",
+        fotoPerfil: '/images/fotoPerfil.jpg'
+    },
     lista: [{
         id: 1,
         name: "Anillo Doble ",
@@ -42,7 +42,7 @@ const products = {
                 imagenPerfil: "/images/users/juan.jpeg"
             }
         ]
-        
+
     },
     {
         id: 3,

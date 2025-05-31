@@ -10,44 +10,47 @@
 			<!-- /Header -->
 
 			<!-- Novedades -->
-			<h1 class="resultados">Resultados de búsqueda para:  <%= busqueda %></h1>
-			<% if (message && message.length > 0) { %>
-				<p class="no-resultados"><%= message %></p>
-			<% } %>
-			<main >
-			<div class="container products-wrapper">
-				
-					<% for (let index = 0; index < productos.length; index++) { %>
-					  
-						<a class="search-detail" href="<%= productos[index].id %>">
-						  <figure >
-							<img src="<%= productos[index].imagen_producto %>"
-								alt="<%= productos[index].nombre_producto %>" class="product-image-search">
-						</figure>
-						<article >
-							
-							<div class="product-header">
-								<h1 class="product-title">
-									<%= productos[index].nombre_producto %>
-								</h1>
-							</div>
-							<div class="product-info">
-								<p class="product-description">
-									<%= productos[index].descripcion %>
-								</p>
-							</div>
+			<h1 class="resultados">Resultados de búsqueda para: <%= busqueda %>
+			</h1>
+			<% if (message && message.length> 0) { %>
+				<p class="no-resultados">
+					<%= message %>
+				</p>
+				<% } %>
+					<main>
+						<div class="container products-wrapper">
+
+							<% for (let index=0; index < productos.length; index++) { %>
+
+								<a class="search-detail" href="<%= productos[index].id %>">
+									<figure>
+										<img src="<%= productos[index].imagen_producto %>"
+											alt="<%= productos[index].nombre_producto %>" class="product-image-search">
+									</figure>
+									<article>
+
+										<div class="product-header">
+											<h1 class="product-title">
+												<%= productos[index].nombre_producto %>
+											</h1>
+										</div>
+										<div class="product-info">
+											<p class="product-description">
+												<%= productos[index].descripcion %>
+											</p>
+										</div>
 
 
-						</article>
-						</a>
-					  
-					<% } %>
-				
-			  </div> 
-			</main>				  <!-- Show the "ultimos" products -->
-			
-								<!-- footer -->
-								<%- include('./partials/footer') %>
+									</article>
+								</a>
+
+								<% } %>
+
+						</div>
+					</main> <!-- Show the "ultimos" products -->
+
+					<!-- footer -->
+					<%- include('./partials/footer') %>
 
 	</body>
 

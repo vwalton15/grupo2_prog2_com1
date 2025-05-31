@@ -11,7 +11,7 @@ router.get('/login', userController.mostrarLogin);
 router.post('/login', userController.login);
 
 router.get('/logout', userController.logout);
-router.get('/search', productController.search); 
+router.get('/search', productController.search);
 router.get('/profile', userController.profile);
 router.get("/profile/:id", userController.usuario)
 

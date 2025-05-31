@@ -1,5 +1,5 @@
 <div class="row">
-    <% for(let i = 0; i < productos.length; i++) { %>
+    <% for(let i=0; i < productos.length; i++) { %>
         <div class="col-12 col-sm-6 col-lg-3">
             <section class="product-box">
                 <a href="/products/<%= productos[i].id%>">
@@ -7,12 +7,17 @@
                         <img src="<%= productos[i].imagen_producto %>" alt="<%= productos[i].nombre_producto %>">
                     </figure>
                     <article class="product-box_data">
-                        <h2><%= productos[i].nombre_producto %></h2>
-                        <p><%= productos[i].descripcion %></p>
-                        <a class="creador-usuario" href="/users/profile/<%= productos[i].usuario.id  %>"> Cargado por: <%= productos[i].usuario.email %></a>
+                        <h2>
+                            <%= productos[i].nombre_producto %>
+                        </h2>
+                        <p>
+                            <%= productos[i].descripcion %>
+                        </p>
+                        <a class="creador-usuario" href="/users/profile/<%= productos[i].usuario.id  %>"> Cargado por:
+                            <%= productos[i].usuario.email %></a>
                     </article>
                 </a>
             </section>
         </div>
-    <% } %>
-</div> 
+        <% } %>
+</div>
