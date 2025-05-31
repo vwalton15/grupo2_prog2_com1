@@ -16,7 +16,7 @@
         <section class="info-usuario container products-wrapper">
             <div class="row">
                 <div class="img-container offset-3 col-2">
-                    <img src="<%= usuario.foto_perfil %>"class="foto-perfil">
+                    <img src="<%= usuario.foto_perfil %>" class="foto-perfil">
                 </div>
                 <div class="data-container col-6">
                     <div class="d-flex align">
@@ -24,30 +24,32 @@
                     </div>
                     <h1>Bienvenido, <%= usuario.email %>
                     </h1>
-                    <p>Total de productos cargados: <%= totalProductos %></p>
+                    <p>Total de productos cargados: <%= totalProductos %>
+                    </p>
                 </div>
             </div>
         </section>
-        <div class="container products-wrapper">
-            <h2> Mis productos  </h2>
-            
-                <% for (let i=0; i < productos.length; i++) { %> 
-                   
-                        <a class="search-detail" href="/products/<%= productos[i].id %>">
-                            <img src="<%= productos[i].imagen_producto %>" class="product-image">
-                            <p>
-                                <%= productos[i].nombre_producto %>
-                            </p>
-                        </a>"
-                    
-                    <% } %>
-            
-        </div>
-        <!-- /Mis productos -->
 
-        <!-- Footer -->
-        <%- include('./partials/footer') %>
-            <!-- /Footer -->
+        <div class="container products-wrapper">
+            <h2> Mis productos </h2>
+            <div class="container products-wrapper">
+
+                <% for (let i=0; i < productos.length; i++) { %>
+
+                    <a class="search-detail" href="/products/<%= productos[i].id %>">
+                        <img src="<%= productos[i].imagen_producto %>" class="product-image">
+                        <p>
+                            <%= productos[i].nombre_producto %>
+                        </p>
+                    </a>"
+
+                    <% } %>
+
+            </div>
+
+            <!-- Footer -->
+            <%- include('./partials/footer') %>
+                <!-- /Footer -->
 </body>
 
 </html>
