@@ -593,15 +593,17 @@ hr {
 
 .product-image {
   max-width: 300px;
-  height: 400px;
+  height: auto;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(3, 3, 3, 0.1);
   justify-content: space-between;
+  margin: 0 auto;
+  display: block;
 }
 
 .product-image-search {
-  width: 300px;
-  height: 400px;
+  width: 250px;
+  height: 280px;
   object-fit: cover;
   border-radius: 8px;
   display: block;
