@@ -30,12 +30,12 @@
 			</ul>
 
 			<ul class="right-navbar">
-				<% if (usuario) { %>
+				<% if (user) { %>
 
 					<li class="cont-usuario">
 						<a href="/users/profile">
 							<span class="titulo-usuario">
-								<%= usuario.usuario %>
+								<%= user.usuario %>
 							</span>
 							<svg class="iconouser" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
 								stroke-width="1.5" stroke="currentColor">
@@ -50,10 +50,9 @@
 						<li><a href="/users/login" class="iniciarS">Iniciar sesión</a></li>
 						<% } %>
 			</ul>
-
 			<div class="search-container">
-				<form action="/products/search" method="GET" class="search-form">
-					<input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-input">
+				<form action="/products/search-results" method="GET" class="search-form" name="search">
+					<input type="text" name="search" placeholder="Buscar..." class="search-input">
 					<button type="submit" class="search-button"><i class="fas fa-search"></i></button>
 				</form>
 			</div>
